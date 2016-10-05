@@ -1,0 +1,34 @@
+{
+  "name": "cordova-plugin-antplus",
+  "version": "0.8.0",
+  "description": "Cordova plugin based on ANT+ SDK for communication with ANT+ devices",
+  "cordova": {
+    "id": "cordova-plugin-antplus",
+    "platforms": [
+      "android"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://lmuller14@github.com/lmuller14/cordova-plugin-antplus.git"
+  },
+  "keywords": [
+    "cordova",
+    "ecosystem:cordova",
+    "cordova-android",
+    "ant",
+    "ant+"
+  ],
+  "engines": [
+    {
+      "name": "cordova",
+      "version": ">=3.4.0"
+    }
+  ],
+  "author": "Lubos Muller",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/lmuller14/cordova-plugin-antplus/issues"
+  },
+  "homepage": "https://github.com/lmuller14/cordova-plugin-antplus#readme"
+}
