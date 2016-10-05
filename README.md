@@ -7,3 +7,5 @@ Originally created for MoBio app:
 Cordova plugin based on ANT+ SDK for communication with ANT+ devices
 
 Android only
+
+Documentation will be added soon.
