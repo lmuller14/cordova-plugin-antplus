@@ -27,7 +27,7 @@ The apps enable the communication with ANT+ OTG modul if you are using it.
 
 ## Methods
 
-- [antplus.searchDevices](#searchDevices)
+- [antplus.searchDevices] (#searchDevices)
 
 ## searchDevices
 
@@ -63,3 +63,9 @@ Possible values are:
 - event
 - message
 - code
+
+### Example
+
+    antplus.searchDevices('BIKE_SPD,BIKE_CADENCE,BIKE_SPDCAD', function(device) {
+        console.log(JSON.stringify(device));
+    }, failure);
