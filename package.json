@@ -17,7 +17,13 @@
     "ecosystem:cordova",
     "cordova-android",
     "ant",
-    "ant+"
+    "ant+",
+    "weight-scale",
+    "heart-rate",
+    "blood-pressure",
+    "stride-meter",
+    "bike-speed-distance",
+    "multi-device-search"
   ],
   "engines": [
     {
