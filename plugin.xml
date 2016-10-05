@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+            id="cordova-plugin-antplus"
+        version="0.8.0">
+
+    <name>Ant+</name>
+
+    <engines>
+        <engine name="cordova" version=">=3.4.0"/>
+    </engines>
+
+    <asset src="www/antplus.js" target="js/antplus.js"/>
+
+    <js-module src="www/antplus.js" name="antplus">
+        <clobbers target="antplus" />
+    </js-module>
+
+    <platform name="android">
+
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="Antplus">
+                <param name="android-package" value="cz.zcu.kiv.neuroinformatics.antplus.Antplus"/>
+            </feature>
+        </config-file>
+    
+        <config-file target="AndroidManifest.xml" parent="/*">
+            <uses-permission android:name="com.dsi.ant.permission.ANT" />
+        </config-file>
+
+        <source-file src="src/android/Antplus.java" target-dir="src/cz/zcu/kiv/neuroinformatics/antplus"/>
+        <source-file src="src/android/AntplusMultiDeviceSearch.java" target-dir="src/cz/zcu/kiv/neuroinformatics/antplus"/> 
+        <source-file src="src/android/AntplusHeartRateService.java" target-dir="src/cz/zcu/kiv/neuroinformatics/antplus"/> 
+        <source-file src="src/android/AntplusWeightScaleService.java" target-dir="src/cz/zcu/kiv/neuroinformatics/antplus"/>
+        <source-file src="src/android/AntplusBloodPressureService.java" target-dir="src/cz/zcu/kiv/neuroinformatics/antplus"/>
+        <source-file src="src/android/AntplusStrideSDMService.java" target-dir="src/cz/zcu/kiv/neuroinformatics/antplus"/>
+        <source-file src="src/android/AntplusBikeSpeedDistanceService.java" target-dir="src/cz/zcu/kiv/neuroinformatics/antplus"/>
+               
+        <source-file src="src/android/libs/antpluginlib_3-5-0.jar" target-dir="libs" />
+        <source-file src="src/android/libs/fit_14.10.jar" target-dir="libs" />
+    </platform>
+
+</plugin>
