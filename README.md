@@ -28,6 +28,27 @@ The apps enable the communication with ANT+ OTG modul if you are using it.
 ## Methods
 
 - [antplus.searchDevices] (#searchDevices)
+- [antplus.stopSearchDevices] (#stopSearchDevices)
+- [antplus.subscribeHR] (#subscribeHR)
+- [antplus.unsubscribeHR] (#unsubscribeHR)
+- [antplus.subscribeWGT] (#subscribeWGT)
+- [antplus.unsubscribeWGT] (#unsubscribeWGT)
+- [antplus.requestBasicWGT] (#requestBasicWGT)
+- [antplus.requestAdvancedWGT] (#requestAdvancedWGT)
+<!---
+- [antplus.subscribeBP] (#subscribeBP)
+- [antplus.unsubscribeBP] (#unsubscribeBP)
+- [antplus.stopDataMonitorBP] (#stopDataMonitorBP)
+- [antplus.getAntFsMfgIDBP] (#getAntFsMfgIDBP)
+- [antplus.requestDownloadMeasurementsBP] (#requestDownloadMeasurementsBP)
+- [antplus.requestResetDataAndSetTimeBP] (#requestResetDataAndSetTimeBP)
+-->
+- [antplus.subscribeSDM] (#subscribeSDM)
+- [antplus.unsubscribeSDM] (#unsubscribeSDM)
+- [antplus.subscribeBike] (#subscribeBike)
+- [antplus.unsubscribeBike] (#unsubscribeBike)
+
+Description of the methods will be added soon.
 
 ## searchDevices
 
@@ -69,3 +90,9 @@ Possible values are:
     antplus.searchDevices('BIKE_SPD,BIKE_CADENCE,BIKE_SPDCAD', function(device) {
         console.log(JSON.stringify(device));
     }, failure);
+
+## stopSearchDevices
+
+Terminate scanning for ANT devices.
+
+    antplus.stopSearchDevices(success, failure)
