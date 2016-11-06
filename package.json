@@ -1,6 +1,6 @@
 {
   "name": "cordova-plugin-antplus",
-  "version": "0.8.0",
+  "version": "0.8.1",
   "description": "Cordova plugin based on ANT+ SDK for communication with ANT+ devices",
   "cordova": {
     "id": "cordova-plugin-antplus",
