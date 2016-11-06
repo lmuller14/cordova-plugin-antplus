@@ -9,7 +9,7 @@ Originally created for MoBio app:
 
 * Android
 
-# ANT support
+# ANT support
 
 In order to use this plugin install the following apps to your phone.
 The apps enable the communication with ANT+ OTG modul if you are using it.
@@ -27,18 +27,18 @@ The apps enable the communication with ANT+ OTG modul if you are using it.
 
 ## Methods
 
-- [antplus.searchDevices] (#searchDevices)
-- [antplus.stopSearchDevices] (#stopSearchDevices)
-- [antplus.subscribeHR] (#subscribeHR)
-- [antplus.unsubscribeHR] (#unsubscribeHR)
-- [antplus.subscribeWGT] (#subscribeWGT)
-- [antplus.unsubscribeWGT] (#unsubscribeWGT)
-- [antplus.requestBasicWGT] (#requestBasicWGT)
-- [antplus.requestAdvancedWGT] (#requestAdvancedWGT)
-- [antplus.subscribeSDM] (#subscribeSDM)
-- [antplus.unsubscribeSDM] (#unsubscribeSDM)
-- [antplus.subscribeBike] (#subscribeBike)
-- [antplus.unsubscribeBike] (#unsubscribeBike)
+- [antplus.searchDevices](#searchdevices)
+- [antplus.stopSearchDevices](#stopsearchdevices)
+- [antplus.subscribeHR](#subscribehr)
+- [antplus.unsubscribeHR](#unsubscribehr)
+- [antplus.subscribeWGT](#subscribewgt)
+- [antplus.unsubscribeWGT](#unsubscribewgt)
+- [antplus.requestBasicWGT](#requestbasicwgt)
+- [antplus.requestAdvancedWGT](#requestadvancedwgt)
+- [antplus.subscribeSDM](#subscribesdm)
+- [antplus.unsubscribeSDM](#unsubscribesdm)
+- [antplus.subscribeBike](#subscribebike)
+- [antplus.unsubscribeBike](#unsubscribebike)
 
 Description of the methods will be added soon.
 
@@ -88,3 +88,100 @@ Possible values are:
 Terminate scanning for ANT devices.
 
     antplus.stopSearchDevices(success, failure)
+
+## subscribeHR
+
+Function `subscribeHR` starts listening for Heart rate monitor events.
+The first parameter is `antDeviceNumber` returned from [antplus.searchDevices](#searchdevices). Success callback is called every time the an event is generated. 
+Each event has different type and data. Events are distinguished by the parameter `event`.
+
+### Example
+    antplus.subscribeHR(antDeviceNumber, function(response) {
+        console.log(JSON.stringify(response));
+    }, failure);
+
+### success callback parameters
+- antDeviceNumber
+- timestamp
+- event: __'heartRateData'__
+    - eventFlags
+    - heartRate
+    - heartBeatCount
+    - heartBeatEventTime
+    - dataState
+- event: __'page4AddtData'__
+    - eventFlags
+    - estTimestamp
+    - manufacturerSpecificByte
+    - previousHeartBeatEventTime
+- event: __'cumulativeOperatingTime'__
+    - eventFlags
+    - estTimestamp
+    - cumulativeOperatingTime
+- event: __'manufacturerAndSerial'__
+    - eventFlags
+    - estTimestamp
+    - manufacturerID
+    - serialNumber
+- event: __'versionAndModelEvent'__
+    - eventFlags
+    - estTimestamp
+    - hardwareVersion
+    - softwareVersion
+    - modelNumber
+- event: __'calculatedRrIntervalEvent'__
+    - eventFlags
+    - estTimestamp
+    - rrInterval
+    - flag
+
+### error callback parameters
+- event: __'error'__
+- message
+- code
+- antDeviceNumber
+
+## unsubscribeHR
+
+Terminate listening for Heart rate monitor events.
+
+    antplus.unsubscribeHR(success, failure)
+
+## subscribeWGT
+
+Function `subscribeWGT` starts listening for Weight scale events.
+The first parameter is `antDeviceNumber` returned from [antplus.searchDevices](#searchdevices). Success callback is called every time the an event is generated. 
+Each event has different type and data. Events are distinguished by the parameter `event`.
+
+### Example
+    antplus.subscribeWGT(antDeviceNumber, function(response) {
+        console.log(JSON.stringify(response));
+    }, failure);
+
+### success callback parameters
+- antDeviceNumber
+- timestamp
+- event: __'bodyWeightBroadcastData'__
+    - eventFlags
+    - estTimestamp
+    - bodyWeightStatus
+    - bodyWeight (note: present only if bodyWeightStatus == 'VALID')
+- event: __'manufacturerIdentificationData'__
+    - eventFlags
+    - estTimestamp
+    - hardwareRevision
+    - manufacturerID
+    - modelNumber
+- event: __'productInformationData'__
+    - eventFlags
+    - estTimestamp
+    - mainSoftwareRevision
+    - supplementalSoftwareRevision
+    - serialNumber
+
+
+### error callback parameters (common for above)
+- event: __'error'__
+- message
+- code
+- antDeviceNumber
