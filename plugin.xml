@@ -9,8 +9,6 @@
         <engine name="cordova" version=">=3.4.0"/>
     </engines>
 
-    <asset src="www/antplus.js" target="js/antplus.js"/>
-
     <js-module src="www/antplus.js" name="antplus">
         <clobbers target="antplus" />
     </js-module>
