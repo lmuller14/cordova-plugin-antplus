@@ -185,3 +185,58 @@ Each event has different type and data. Events are distinguished by the paramete
 - message
 - code
 - antDeviceNumber
+
+
+## unsubscribeWGT
+
+Terminate listening for Weight Scale events.
+
+    antplus.unsubscribeWGT(success, failure)
+
+## requestBasicWGT
+
+The methdod requests for the basic weight scale measurement - body weight.
+
+    antplus.requestBasicWGT(function(response) {
+        console.log(JSON.stringify(response));
+    }, failure);
+
+### success callback parameters
+- antDeviceNumber
+- timestamp
+- event: __'basicMeasurementData'__
+    - eventFlags
+    - estTimestamp
+    - status
+    - bodyWeight (kg)
+
+## requestAdvancedWGT
+
+The methdod requests for the advanced weight scale data. The user profile is required input.
+
+    var userProfile = {
+        age: 27, // (int)
+        height: 85, // (int)
+        gender: 'MALE', // or 'FEMALE' (string)
+        lifetimeAthlete: false, (bool)
+        activityLevel: 3 // possible values are 1-6 (int)
+    };
+
+    antplus.requestAdvancedWGT(userProfile, function(response) {
+        console.log(JSON.stringify(response));
+    }, failure);
+
+### success callback parameters
+- antDeviceNumber
+- timestamp
+- event: __'advancedMeasurementData'__
+    - eventFlags
+    - estTimestamp
+    - status
+    - bodyWeight (kg)
+    - hydrationPercentage (%)
+    - bodyFatPercentage (%)
+    - muscleMass (kg)
+    - boneMass (kg)
+    - activeMetabolicRate (kcal)
+    - basalMetabolicRate (kcal)
