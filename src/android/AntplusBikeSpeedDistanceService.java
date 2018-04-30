@@ -77,7 +77,9 @@ public class AntplusBikeSpeedDistanceService {
             r.put("event", "error");
             r.put("message", error);
             r.put("code", resultCode);
-            r.put("antDeviceNumber", bsdPcc.getAntDeviceNumber());
+            if (bsdPcc != null) {
+                r.put("antDeviceNumber", bsdPcc.getAntDeviceNumber());
+            }
         } catch (JSONException e) {
             System.err.println(e.getMessage());
         }
