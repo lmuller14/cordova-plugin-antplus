@@ -215,6 +215,6 @@ public class Antplus extends CordovaPlugin {
         } else {
             return false;
         }
-
+        return false;
     }
 }
